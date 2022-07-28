@@ -1,0 +1,35 @@
+
+配置文件中 ：
+<bean> : 定义Spring 中所管理的一个对象  id： 为该对象的唯一标识 不能重复  Class 为该对象的全类名
+依赖注入：  
+<bean > 中的<property > :为对象的某一属性赋值 name  属性名 value为属性值  setter 注入、
+ref  为属性赋值， 应用当前Spring 中的某个bean的值。
+当bean中存在因类型的属性，可以使用内部bean或ref给属性赋值
+当属性为 list/set 可以使用list /set 标签为其赋值
+ 
+spring  中  单例模式的bean 容器初始化时就会创建此对象
+多例及原型的bean 会在使用时创建此对象
+
+加载资源文件 ： <bean  class = propertyPlaceholderConfigurer>  <property  name: "localtion" value="wenjian ming " > </bean>
+${ } 获取资源文件的数值
+atuowire : 根据某种策略为非数值型属性赋值
+可以通过 byname 或bytype
+byname 是通过容器中多管理的bean的名字来装配 ，
+bytype  是通过spring容器中的bean的类型来赋值,要求spring中只能有一个为其复赋值属性bean
+实际中都不太使用
+
+inlclude   需将user default设置为  false   : 意译为 只扫描那种类型的注解或那个类
+exclude  需将user default设置为  ture  ：意义为 不扫描这一类性的注解或类 
+include和 exclude 不能同时出现在同一个扫描的包。
+
+  
+bean:关系   bean 可以继承父bean的属性， 当一个bean的abstract属性为true，为模板bean，
+当一个bean的Class属性为空时，abstract属性必须为true
+子bean可以覆盖父bean的属性
+
+
+
+
+@Atuowired 注解 自动装配具有兼容类型的单个bean 属性@Atuowired  注解的属性都需要被设置,当spring找不到匹配的bean
+属性时 会把抛异常 也可以将@Atuowired  的required参数设置为false
+
